@@ -1,0 +1,27 @@
+This is Perl module Module::Setup::Flavor::ArkTengXslate.
+
+INSTALLATION
+
+Module::Setup::Flavor::ArkTengXslate installation is straightforward. If your CPAN shell is set up,
+you should just be able to do
+
+    % cpan Module::Setup::Flavor::ArkTengXslate
+
+Download it, unpack it, then build it as per the usual:
+
+    % perl Makefile.PL
+    % make && make test
+
+Then install it:
+
+    % make install
+
+DOCUMENTATION
+
+Module::Setup::Flavor::ArkTengXslate documentation is available as in POD. So you can do:
+
+    % perldoc Module::Setup::Flavor::ArkTengXslate
+
+to read the documentation online with your favorite pager.
+
+NAGATA Hiroaki (handlename)
