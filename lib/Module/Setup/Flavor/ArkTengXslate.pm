@@ -353,7 +353,7 @@ file: lib/____var-module_path-var____/DB/TableBase.pm
 template: |
   package [% module %]::DB::TableBase;
   use Mouse;
-  use [% module %]::Models;
+  use [% module %]::Models qw/_models/;
 
   has table_name => (
       is  => 'ro',
@@ -366,7 +366,7 @@ template: |
       $cond    ||= {};
       $options ||= {};
 
-      return models('db')->single($self->table_name, $cond, $options);
+      return _models('db')->single($self->table_name, $cond, $options);
   }
 
   sub search {
@@ -375,19 +375,19 @@ template: |
       $cond    ||= {};
       $options ||= {};
 
-      return models('db')->search($self->table_name, $cond, $options);
+      return _models('db')->search($self->table_name, $cond, $options);
   }
 
   sub insert {
       my ($self, $params) = @_;
 
-      return models('db')->insert($self->table_name, $params);
+      return _models('db')->insert($self->table_name, $params);
   }
 
   sub delete {
       my ($self, $params) = @_;
 
-      return models('db')->delete($self->table_name, $params);
+      return _models('db')->delete($self->table_name, $params);
   }
 
   __PACKAGE__->meta->make_immutable;
