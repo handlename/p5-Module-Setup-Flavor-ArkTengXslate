@@ -1,3 +1,4 @@
+
 package Module::Setup::Flavor::ArkTengXslate;
 use strict;
 use warnings;
@@ -359,6 +360,15 @@ template: |
       isa => 'Str',
   );
 
+  sub single {
+      my ($self, $cond, $options) = @_;
+
+      $cond    ||= {};
+      $options ||= {};
+
+      return models('db')->single($self->table_name, $cond, $options);
+  }
+
   sub search {
       my ($self, $cond, $options) = @_;
 
@@ -366,6 +376,18 @@ template: |
       $options ||= {};
 
       return models('db')->search($self->table_name, $cond, $options);
+  }
+
+  sub insert {
+      my ($self, $params) = @_;
+
+      return models('db')->insert($self->table_name, $params);
+  }
+
+  sub delete {
+      my ($self, $params) = @_;
+
+      return models('db')->delete($self->table_name, $params);
   }
 
   __PACKAGE__->meta->make_immutable;
@@ -492,9 +514,9 @@ template: |
   allow=refs
 ---
 config:
-  author: Default Name
-  class: Module::Setup::Flavor::Default
-  email: 'default {at} example.com'
+  author: NAGATA Hiroaki
+  class: Module::Setup::Flavor::ArkTengXslate
+  email: nagata {at} handlena.me
   plugins:
     - Config::Basic
     - Template
